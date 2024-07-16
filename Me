@@ -1,0 +1,22 @@
+```cpp
+#include <Wt/WApplication.h>
+#include <Wt/WContainerWidget.h>
+#include <Wt/WText.h>
+
+class MyWebsite : public Wt::WApplication {
+public:
+    MyWebsite(const Wt::WEnvironment& env) : Wt::WApplication(env) {
+        // Create a container widget
+        Wt::WContainerWidget *container = root();
+
+        // Add a text widget to the container
+        new Wt::WText("Hello, World!", container);
+    }
+};
+
+int main(int argc, char **argv) {
+    return Wt::WRun(argc, argv, [](const Wt::WEnvironment& env) {
+        return Wt::cpp14::make_unique<MyWebsite>(env);
+    });
+}
+```
